@@ -1,10 +1,10 @@
-const newQuoteButton = document.querySelector('#js-new-quote');
-newQuoteButton.addEventListener('click', getQuote);
+const newDogButton = document.querySelector('#js-new-dog');
+newDogButton.addEventListener('click', getDog);
 
 // const endpoint = 'https://api.whatdoestrumpthink.com/api/v1/quotes/random';
 const endpoint = 'https://dog.ceo/api/breeds/image/random';
 
-async function getQuote() {
+async function getDog() {
     try {
         const response = await fetch(endpoint);
         if (!response.ok) {
@@ -12,8 +12,7 @@ async function getQuote() {
         }
 
     const json =  await response.json();
-    console.log(json.message);
-    displayQuote(json.message);
+    displayDog(json.message);
     }   
     catch (err) {
         console.log(err);
@@ -21,7 +20,8 @@ async function getQuote() {
     }
 };
 
-function displayQuote(quote) {
-    const quoteText = document.querySelector('#js-quote-text');
-    quoteText.src = quote;
+function displayDog(dog) {
+    const dogUrl = document.querySelector('#js-dog-url');
+    dogUrl.src = dog;
+    dogUrl.classList.add('dog-display');
 };
