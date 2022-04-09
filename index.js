@@ -17,7 +17,7 @@ async function getQuote() {
     }   
     catch (err) {
         console.log(err);
-        alert('Failed to fetch new quote');
+        alert('Ruff ruff! Failed to fetch new dog.');
     }
 };
 
